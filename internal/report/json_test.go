@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/checks"
+	"github.com/277pawan/freerev-cli/internal/checks"
 )
 
 func TestReportIncludesLocalValidationResults(t *testing.T) {

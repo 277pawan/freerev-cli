@@ -8,8 +8,8 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/database"
-	"github.com/pawan-bisht/revenant-free-cli/internal/discover"
+	"github.com/277pawan/freerev-cli/internal/database"
+	"github.com/277pawan/freerev-cli/internal/discover"
 )
 
 var (

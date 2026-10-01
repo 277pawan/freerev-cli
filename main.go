@@ -1,6 +1,6 @@
 package main
 
-import "github.com/pawan-bisht/revenant-free-cli/cmd"
+import "github.com/277pawan/freerev-cli/cmd"
 
 func main() {
 	cmd.Execute()

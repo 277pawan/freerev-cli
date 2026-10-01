@@ -5,7 +5,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/config"
+	"github.com/277pawan/freerev-cli/internal/config"
 )
 
 // Connect proves the database accepts connections before heavier checks run.

@@ -1,4 +1,4 @@
-module github.com/pawan-bisht/revenant-free-cli
+module github.com/277pawan/freerev-cli
 
 go 1.22
 

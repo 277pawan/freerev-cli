@@ -6,7 +6,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/config"
+	"github.com/277pawan/freerev-cli/internal/config"
 )
 
 // Index proves named indexes exist in the public schema.

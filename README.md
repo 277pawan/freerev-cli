@@ -9,14 +9,14 @@ This edition does not create, restore, or manage backups; it has no AWS or other
 Requires Go 1.22 or later:
 
 ```sh
-go install github.com/pawan-bisht/revenant-free-cli@latest
+go install github.com/277pawan/freerev-cli@latest
 ```
 
 Or build from a clone:
 
 ```sh
-git clone https://github.com/pawan-bisht/revenant-free-cli.git
-cd revenant-free-cli
+git clone https://github.com/277pawan/freerev-cli.git
+cd freerev-cli
 go build -o revenant-free .
 ```
 

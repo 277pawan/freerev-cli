@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/config"
+	"github.com/277pawan/freerev-cli/internal/config"
 )
 
 // HTTPHealth performs application-aware recovery checks without a database connection.

@@ -6,7 +6,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/config"
+	"github.com/277pawan/freerev-cli/internal/config"
 )
 
 // fkPair is one column on the child table pointing at one column on the parent.

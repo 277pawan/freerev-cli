@@ -1,0 +1,64 @@
+name: Free CLI CI and scheduled PostgreSQL smoke test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-smoke:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: revenant
+          POSTGRES_PASSWORD: revenant
+          POSTGRES_DB: revenant_demo
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U revenant -d revenant_demo"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://revenant:revenant@localhost:5432/revenant_demo?sslmode=disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+          cache: true
+      - name: Test and build free CLI
+        run: |
+          go test ./...
+          go build -o revenant-free .
+      - name: Seed PostgreSQL
+        run: |
+          psql "$DATABASE_URL" <<'SQL'
+          CREATE TABLE customers (id SERIAL PRIMARY KEY, name TEXT NOT NULL);
+          CREATE TABLE orders (id SERIAL PRIMARY KEY, customer_id INT NOT NULL REFERENCES customers(id));
+          INSERT INTO customers (name) VALUES ('smoke-test');
+          INSERT INTO orders (customer_id) VALUES (1);
+          SQL
+      - name: Initialize and verify with the free CLI
+        run: |
+          ./revenant-free init --plan free-cli-smoke --force -o free-cli-smoke.yaml
+          ./revenant-free verify --config free-cli-smoke.yaml
+      - name: Upload verification reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: free-cli-smoke-report
+          path: |
+            report.json
+            report.md
+          if-no-files-found: ignore

@@ -7,7 +7,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/config"
+	"github.com/277pawan/freerev-cli/internal/config"
 )
 
 // Schema proves the restored database still has the tables the user named.

@@ -7,10 +7,10 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/checks"
-	"github.com/pawan-bisht/revenant-free-cli/internal/config"
-	"github.com/pawan-bisht/revenant-free-cli/internal/database"
-	"github.com/pawan-bisht/revenant-free-cli/internal/report"
+	"github.com/277pawan/freerev-cli/internal/checks"
+	"github.com/277pawan/freerev-cli/internal/config"
+	"github.com/277pawan/freerev-cli/internal/database"
+	"github.com/277pawan/freerev-cli/internal/report"
 )
 
 var (

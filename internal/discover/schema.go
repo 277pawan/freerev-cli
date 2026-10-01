@@ -9,7 +9,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/pawan-bisht/revenant-free-cli/internal/checks"
+	"github.com/277pawan/freerev-cli/internal/checks"
 )
 
 // Snapshot is what we learned from the database.
