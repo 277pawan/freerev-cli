@@ -1,0 +1,15 @@
+plan: local-demo
+
+database:
+  engine: postgres
+  connection: ${DATABASE_URL}
+
+checks:
+  - type: connect
+  - type: schema
+    expect_tables:
+      - customers
+      - orders
+  - type: row_count
+    table: orders
+    min: 1
